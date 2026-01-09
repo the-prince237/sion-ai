@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transformation Digitale & IA</title>
+    <title>Transformation Digitale & IA - Guide Complet</title>
     <style>
         @page {
             size: A4 landscape;
@@ -18,276 +18,710 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #fff;
+            background: #0a0a0a;
             color: #fff;
         }
         
         .slide {
-            margin: auto;
-            width: 297mm;
-            height: 210mm;
+            width: 100vw;
+            height: 100vh;
             page-break-after: always;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 60px 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px 70px;
             position: relative;
             overflow: hidden;
         }
         
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .slide-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .slide h1 {
-            font-size: 64px;
-            margin-bottom: 30px;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .slide h2 {
-            font-size: 48px;
-            margin-bottom: 40px;
-            font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .slide p, .slide li {
-            font-size: 28px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        .slide ul {
-            list-style: none;
-            margin-top: 30px;
-        }
-        
-        .slide li {
-            padding-left: 40px;
-            position: relative;
-            margin-bottom: 25px;
-        }
-        
-        .slide li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-            font-size: 32px;
-        }
-        
-        .highlight {
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        
-        .slide-number {
-            position: absolute;
-            bottom: 30px;
-            right: 40px;
-            font-size: 20px;
-            opacity: 0.7;
-        }
-        
-        .title-slide {
+        /* Différents styles de slides */
+        .slide-title {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             justify-content: center;
             align-items: center;
             text-align: center;
         }
         
-        .subtitle {
+        .slide-content {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        
+        .slide-dark {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        }
+        
+        .slide-accent {
+            background: linear-gradient(135deg, #134e5e 0%, #71b280 100%);
+        }
+        
+        .slide-warning {
+            background: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%);
+            color: #1a1a1a;
+        }
+        
+        /* Effets de fond */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Typographie */
+        h1 {
+            font-size: 72px;
+            margin-bottom: 25px;
+            font-weight: 800;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            letter-spacing: -1px;
+        }
+        
+        h2 {
+            font-size: 52px;
+            margin-bottom: 35px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            border-bottom: 4px solid rgba(255,255,255,0.3);
+            padding-bottom: 15px;
+        }
+        
+        h3 {
             font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+        
+        p {
+            font-size: 24px;
+            line-height: 1.7;
+            margin-bottom: 20px;
             opacity: 0.9;
-            margin-top: 20px;
         }
         
-        @media print {
-            body {
-                background: white;
-            }
-            .slide {
-                box-shadow: none;
-            }
+        .subtitle {
+            font-size: 32px;
+            opacity: 0.85;
+            margin-top: 15px;
+            font-weight: 400;
         }
         
+        /* Listes élaborées */
+        ul {
+            list-style: none;
+            margin-top: 25px;
+        }
+        
+        li {
+            font-size: 24px;
+            line-height: 1.6;
+            padding: 18px 20px 18px 60px;
+            margin-bottom: 18px;
+            position: relative;
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            border-left: 5px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        li:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(10px);
+        }
+        
+        li::before {
+            content: '✓';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            font-size: 28px;
+            color: #4ade80;
+        }
+        
+        .slide-warning li {
+            background: rgba(0,0,0,0.1);
+            border-left-color: #1a1a1a;
+        }
+        
+        /* Grille de contenu */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .slide-warning .card {
+            background: rgba(0,0,0,0.15);
+            border-color: rgba(0,0,0,0.3);
+        }
+        
+        .card h3 {
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        
+        .card p, .card li {
+            font-size: 20px;
+        }
+        
+        /* Badges et highlights */
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 5px 10px 5px 0;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .slide-warning .badge {
+            background: rgba(0,0,0,0.2);
+            border-color: rgba(0,0,0,0.3);
+        }
+        
+        .highlight-box {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 6px solid #4ade80;
+        }
+        
+        /* Icônes et emojis stylisés */
+        .icon {
+            font-size: 48px;
+            margin-right: 20px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        /* Numérotation */
+        .slide-number {
+            position: absolute;
+            bottom: 25px;
+            right: 35px;
+            font-size: 22px;
+            opacity: 0.6;
+            font-weight: 600;
+        }
+        
+        /* Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .timeline-item {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid #4ade80;
+        }
+        
+        .timeline-item h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-item p {
+            font-size: 18px;
+        }
+        
+        /* Stats boxes */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-box {
+            background: rgba(255,255,255,0.12);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 56px;
+            font-weight: 800;
+            color: #4ade80;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        
+        /* Bouton d'impression */
         .btn-print {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 15px 30px;
-            background: #667eea;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 18px;
+            font-weight: 600;
             cursor: pointer;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
         }
         
         .btn-print:hover {
-            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
         }
         
         @media print {
             .btn-print {
                 display: none;
             }
+            .slide::before {
+                animation: none;
+            }
+        }
+        
+        /* Liste numérotée personnalisée */
+        .numbered-list {
+            counter-reset: item;
+            list-style: none;
+        }
+        
+        .numbered-list li::before {
+            content: counter(item);
+            counter-increment: item;
+            background: #4ade80;
+            color: #1a1a1a;
+            font-weight: 800;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        /* Section avec fond séparé */
+        .section-box {
+            background: rgba(0,0,0,0.2);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-    <!-- <button class="btn-print" onclick="window.print()">📄 Générer PDF</button> -->
-
-    <!-- Slide 1: Titre -->
-    <div class="slide title-slide">
-        <div class="slide-content">
-            <h1>La Transformation Digitale & l'IA</h1>
-            <p class="subtitle">Donner des outils pour la manipulation de l'IA dans la formation, l'usage de Montrer et manipuler</p>
+    <!-- Slide 1: Page de titre élaborée -->
+    <div class="slide slide-title">
+        <div class="content-wrapper">
+            <h1>🚀 Transformation Digitale & Intelligence Artificielle</h1>
+            <p class="subtitle">Guide complet pour l'intégration de l'IA dans vos équipes</p>
+            <div style="margin-top: 50px;">
+                <span class="badge">Formation Pratique</span>
+                <span class="badge">Manipulation d'Outils</span>
+                <span class="badge">Cas Concrets</span>
+            </div>
+            <p style="margin-top: 50px; font-size: 24px; opacity: 0.8;">Donnez à vos équipes les outils pour maîtriser l'IA au quotidien</p>
         </div>
         <div class="slide-number">1</div>
     </div>
 
-    <!-- Slide 2: Objectifs -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2>🎯 Objectifs</h2>
-            <ul>
-                <li>Former vos équipes à l'IA générative</li>
-                <li>Automatisation des tâches chronophages</li>
-                <li>Augmenter la productivité</li>
-                <li>Montrer via des exemples concrets</li>
-            </ul>
+    <!-- Slide 2: Contexte & Enjeux -->
+    <div class="slide slide-content">
+        <div class="content-wrapper">
+            <h2><span class="icon">🌍</span>Contexte & Enjeux de l'IA</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🎯 Pourquoi maintenant ?</h3>
+                    <ul>
+                        <li>L'IA est accessible à tous</li>
+                        <li>Évolution technologique rapide</li>
+                        <li>Compétitivité des entreprises</li>
+                        <li>Attentes des collaborateurs</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>📊 Impact mesurable</h3>
+                    <ul>
+                        <li>+40% de productivité moyenne</li>
+                        <li>Réduction des tâches répétitives</li>
+                        <li>Amélioration de la qualité</li>
+                        <li>Innovation accélérée</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight-box">
+                <p><strong>💡 Point clé :</strong> L'IA ne remplace pas les humains, elle augmente leurs capacités et libère du temps pour des tâches à haute valeur ajoutée.</p>
+            </div>
         </div>
         <div class="slide-number">2</div>
     </div>
 
-    <!-- Slide 3: L'IA pour les équipes -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2>🤖 L'IA au service des équipes</h2>
-            <ul>
-                <li><span class="highlight">ChatGPT / Claude</span> : Rédaction, analyse, brainstorming</li>
-                <li><span class="highlight">Outils de génération</span> : Images, vidéos, présentations</li>
-                <li><span class="highlight">Automatisation</span> : Workflows intelligents</li>
-                <li><span class="highlight">Gain de temps</span> : Focus sur la valeur ajoutée</li>
+    <!-- Slide 3: Objectifs détaillés -->
+    <div class="slide slide-dark">
+        <div class="content-wrapper">
+            <h2><span class="icon">🎯</span>Objectifs de la Formation</h2>
+            <ul class="numbered-list">
+                <li><strong>Former et responsabiliser</strong> : Donner des outils pour la manipulation de l'IA, comprendre les enjeux éthiques et les bonnes pratiques</li>
+                <li><strong>Montrer concrètement</strong> : Démonstrations pratiques via des exemples réels d'utilisation dans votre contexte professionnel</li>
+                <li><strong>Manipuler et pratiquer</strong> : Sessions hands-on où chacun utilise les outils et crée du contenu avec l'IA</li>
+                <li><strong>Automatiser intelligemment</strong> : Identifier et automatiser les tâches chronophages pour gagner en efficacité</li>
+                <li><strong>Intégrer durablement</strong> : Créer des workflows et habitudes pour une utilisation quotidienne de l'IA</li>
             </ul>
         </div>
         <div class="slide-number">3</div>
     </div>
 
-    <!-- Slide 4: Cas d'usage -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2>💡 Cas d'usage concrets</h2>
-            <ul>
-                <li>Rédaction de rapports et comptes-rendus</li>
-                <li>Création de présentations PowerPoint</li>
-                <li>Analyse de données et insights</li>
-                <li>Support client automatisé</li>
-                <li>Génération de contenus marketing</li>
-            </ul>
+    <!-- Slide 4: Les outils IA essentiels -->
+    <div class="slide slide-content">
+        <div class="content-wrapper">
+            <h2><span class="icon">🤖</span>Les Outils IA pour les Équipes</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>💬 IA Conversationnelle</h3>
+                    <ul>
+                        <li><strong>ChatGPT / Claude</strong> : Rédaction, analyse, brainstorming, code</li>
+                        <li><strong>Microsoft Copilot</strong> : Intégré à Office 365</li>
+                        <li><strong>Gemini</strong> : Google Workspace</li>
+                        <li><strong>Perplexity</strong> : Recherche augmentée</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 30px;">🎨 Génération de Contenu</h3>
+                    <ul>
+                        <li><strong>Midjourney / DALL-E</strong> : Images</li>
+                        <li><strong>Runway / Pika</strong> : Vidéos</li>
+                        <li><strong>ElevenLabs</strong> : Voix synthétiques</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>🛠️ Outils Métier</h3>
+                    <ul>
+                        <li><strong>Notion AI</strong> : Gestion documentaire</li>
+                        <li><strong>Jasper / Copy.ai</strong> : Marketing</li>
+                        <li><strong>GitHub Copilot</strong> : Développement</li>
+                        <li><strong>Beautiful.ai</strong> : Présentations</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 30px;">📊 Analyse & Data</h3>
+                    <ul>
+                        <li><strong>Excel + IA</strong> : Power Query, formules</li>
+                        <li><strong>Tableau Pulse</strong> : Analytics IA</li>
+                        <li><strong>DataRobot</strong> : ML automatisé</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="slide-number">4</div>
     </div>
 
-    <!-- Slide 5: Logiciels courants -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2>🛠️ Logiciels & Outils IA</h2>
-            <ul>
-                <li><span class="highlight">Montage</span> : CapCut, Adobe Premiere (IA)</li>
-                <li><span class="highlight">Définir via Excel</span> : Power Query, formules IA</li>
-                <li><span class="highlight">Entreprise</span> : Microsoft Copilot, Notion AI</li>
-                <li><span class="highlight">Utiliser</span> : Formation pratique et manipulations</li>
-            </ul>
+    <!-- Slide 5: Cas d'usage détaillés -->
+    <div class="slide slide-accent">
+        <div class="content-wrapper">
+            <h2><span class="icon">💡</span>Cas d'Usage Concrets par Département</h2>
+            
+            <div class="section-box">
+                <h3>📢 Marketing & Communication</h3>
+                <ul>
+                    <li>Génération de contenus pour réseaux sociaux (posts, visuels, vidéos courtes)</li>
+                    <li>Rédaction d'articles de blog optimisés SEO</li>
+                    <li>Création de campagnes publicitaires avec variations A/B</li>
+                    <li>Analyse de sentiment et tendances sur les réseaux sociaux</li>
+                </ul>
+            </div>
+            
+            <div class="grid-2" style="margin-top: 20px;">
+                <div class="section-box">
+                    <h3>💼 Ressources Humaines</h3>
+                    <ul>
+                        <li>Rédaction d'offres d'emploi</li>
+                        <li>Tri automatisé de CV</li>
+                        <li>Chatbots pour FAQ internes</li>
+                        <li>Plans de formation personnalisés</li>
+                    </ul>
+                </div>
+                <div class="section-box">
+                    <h3>📊 Finance & Comptabilité</h3>
+                    <ul>
+                        <li>Analyse prédictive de trésorerie</li>
+                        <li>Automatisation de rapports</li>
+                        <li>Détection d'anomalies</li>
+                        <li>Optimisation budgétaire</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="slide-number">5</div>
     </div>
 
-    <!-- Slide 6: Power Point via IA -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2>📊 Montrer comment utiliser l'IA</h2>
-            <ul>
-                <li>Créer des présentations en quelques secondes</li>
-                <li>Générer du contenu visuellement attractif</li>
-                <li>Automatiser la mise en forme</li>
-                <li>Adapter le message à l'audience</li>
-            </ul>
+    <!-- Slide 6: Workflow d'utilisation -->
+    <div class="slide slide-dark">
+        <div class="content-wrapper">
+            <h2><span class="icon">🔄</span>Workflow d'Utilisation de l'IA</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>1. Identifier</h4>
+                    <p>Repérer les tâches répétitives et chronophages</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2. Sélectionner</h4>
+                    <p>Choisir l'outil IA adapté à la tâche</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>3. Prompt</h4>
+                    <p>Formuler une demande claire et précise</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>4. Itérer</h4>
+                    <p>Affiner les résultats par étapes successives</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>5. Valider</h4>
+                    <p>Vérifier et ajuster le résultat final</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 40px;">
+                <h3>✍️ L'art du Prompt Engineering</h3>
+                <ul>
+                    <li><strong>Contexte</strong> : Donnez le cadre et l'objectif</li>
+                    <li><strong>Rôle</strong> : Demandez à l'IA d'adopter une perspective spécifique</li>
+                    <li><strong>Format</strong> : Précisez la structure attendue (tableau, liste, paragraphe)</li>
+                    <li><strong>Contraintes</strong> : Indiquez les limites (longueur, ton, style)</li>
+                    <li><strong>Exemples</strong> : Fournissez des modèles pour guider l'IA</li>
+                </ul>
+            </div>
         </div>
         <div class="slide-number">6</div>
     </div>
 
-    <!-- Slide 7: Responsabilités -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2>⚖️ Responsabilités & Bonnes Pratiques</h2>
-            <ul>
-                <li>Vérifier les informations générées</li>
-                <li>Respecter la confidentialité des données</li>
-                <li>Maintenir l'esprit critique</li>
-                <li>Former continuellement les équipes</li>
-            </ul>
+    <!-- Slide 7: Manipulation pratique -->
+    <div class="slide slide-content">
+        <div class="content-wrapper">
+            <h2><span class="icon">🖥️</span>Manipuler : Logiciels & Démonstrations</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🎬 Montage Vidéo IA</h3>
+                    <p><strong>CapCut avec IA intégrée</strong></p>
+                    <ul>
+                        <li>Sous-titrage automatique multilingue</li>
+                        <li>Suppression de fond en un clic</li>
+                        <li>Effets et transitions intelligents</li>
+                        <li>Voix off générée par IA</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Adobe Premiere Pro</strong></p>
+                    <ul>
+                        <li>Auto-reframe pour différents formats</li>
+                        <li>Colorimétrie automatique</li>
+                        <li>Remix audio intelligent</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>📊 Excel & Data avec IA</h3>
+                    <p><strong>Power Query + Formules IA</strong></p>
+                    <ul>
+                        <li>Nettoyage automatique de données</li>
+                        <li>Prédictions et tendances</li>
+                        <li>Génération de graphiques optimaux</li>
+                        <li>Analyse de grands volumes</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Python + Pandas</strong></p>
+                    <ul>
+                        <li>Scripts générés par ChatGPT</li>
+                        <li>Automatisation complète</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 25px;">
+                <p><strong>🎯 Atelier pratique :</strong> Chaque participant créera une présentation PowerPoint complète en moins de 10 minutes avec l'aide de l'IA (contenu, design, images).</p>
+            </div>
         </div>
         <div class="slide-number">7</div>
     </div>
 
-    <!-- Slide 8: Nouvelles technologies -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2>🚀 Nouvelles Technologies</h2>
-            <ul>
-                <li><span class="highlight">Travail aux côtés</span> : Collaboration homme-machine</li>
-                <li>IA comme assistant, pas comme remplaçant</li>
-                <li>Augmentation des capacités humaines</li>
-                <li>Évolution continue des outils</li>
-            </ul>
+    <!-- Slide 8: PowerPoint et présentations -->
+    <div class="slide slide-accent">
+        <div class="content-wrapper">
+            <h2><span class="icon">📊</span>Créer des Présentations avec l'IA</h2>
+            
+            <h3>🛠️ Outils disponibles</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Gamma.app</h4>
+                    <ul>
+                        <li>Génération complète depuis un prompt</li>
+                        <li>Design moderne automatique</li>
+                        <li>Export PowerPoint / PDF</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Beautiful.ai</h4>
+                    <ul>
+                        <li>Templates intelligents</li>
+                        <li>Ajustement automatique</li>
+                        <li>Collaboration temps réel</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Tome.app</h4>
+                    <ul>
+                        <li>Narration visuelle IA</li>
+                        <li>Génération d'images intégrée</li>
+                        <li>Interactivité avancée</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>ChatGPT + PowerPoint</h4>
+                    <ul>
+                        <li>Structure de présentation</li>
+                        <li>Contenu des slides</li>
+                        <li>Notes du présentateur</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section-box" style="margin-top: 25px;">
+                <h3>📝 Processus en 5 étapes</h3>
+                <p>1. <strong>Définir l'objectif</strong> et le public cible → 2. <strong>Générer la structure</strong> avec l'IA → 3. <strong>Créer le contenu</strong> slide par slide → 4. <strong>Générer les visuels</strong> (images, graphiques) → 5. <strong>Affiner et personnaliser</strong> le design</p>
+            </div>
         </div>
         <div class="slide-number">8</div>
     </div>
 
-    <!-- Slide 9: Plan d'action -->
-    <div class="slide">
-        <div class="slide-content">
-            <h2>📋 Plan d'Action</h2>
-            <ul>
-                <li>Audit des besoins de l'équipe</li>
-                <li>Formation pratique aux outils IA</li>
-                <li>Mise en place de workflows automatisés</li>
-                <li>Suivi et optimisation continue</li>
-            </ul>
+    <!-- Slide 9: Responsabilités et éthique -->
+    <div class="slide slide-warning">
+        <div class="content-wrapper">
+            <h2><span class="icon">⚖️</span>Responsabilités & Éthique de l'IA</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>✅ Bonnes Pratiques</h3>
+                    <ul>
+                        <li>Toujours vérifier les informations générées</li>
+                        <li>Citer l'utilisation de l'IA si pertinent</li>
+                        <li>Garder l'humain dans la boucle de décision</li>
+                        <li>Former continuellement les équipes</li>
+                        <li>Documenter les processus automatisés</li>
+                        <li>Tester avant de déployer</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>🚫 À Éviter Absolument</h3>
+                    <ul>
+                        <li>Partager des données confidentielles</li>
+                        <li>Accepter les résultats sans validation</li>
+                        <li>Remplacer la réflexion critique</li>
+                        <li>Ignorer les biais potentiels de l'IA</li>
+                        <li>Utiliser l'IA pour des décisions RH sensibles</li>
+                        <li>Négliger la propriété intellectuelle</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 30px; border-left-color: #f2994a;">
+                <h3>🔐 Protection des Données</h3>
+                <p><strong>Principe de base :</strong> Ne jamais saisir dans une IA publique (ChatGPT, Claude, etc.) des informations confidentielles, des données clients, des secrets industriels ou des informations personnelles sensibles.</p>
+                <p style="margin-top: 15px;"><strong>Solution :</strong> Utiliser des versions entreprise avec garanties de confidentialité ou des IA déployées en interne.</p>
+            </div>
         </div>
         <div class="slide-number">9</div>
     </div>
 
-    <!-- Slide 10: Conclusion -->
-    <div class="slide title-slide">
-        <div class="slide-content">
-            <h1>🎓 Prêts pour la transformation ?</h1>
-            <p class="subtitle">L'IA n'est pas l'avenir, c'est maintenant</p>
-            <p style="margin-top: 40px; font-size: 32px;">Passons à la pratique !</p>
+    <!-- Slide 10: Collaboration humain-IA -->
+    <div class="slide slide-dark">
+        <div class="content-wrapper">
+            <h2><span class="icon">🤝</span>Travailler aux Côtés de l'IA</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">Des tâches augmentées, pas remplacées</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">3x</div>
+                    <div class="stat-label">Multiplication de la vitesse de production</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">Temps libéré pour la créativité</div>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 35px;">
+                <h3>🎯 Le Modèle de Collaboration</h3>
+                <div class="grid-2">
+                    <div>
+                        <p><strong>🤖 L'IA excelle à :</strong></p>
+                        <ul>
+                            <li>Traiter de grands volumes rapidement</li>
+                            <li>Générer des variations multiples</li>
+                            <li>Automatiser les tâches répétitives</li>
+                            <li>Analyser des patterns complexes</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p><strong>👤 L'humain apporte :</strong></p>
+                        <ul>
+                            <li>Créativité et originalité</li>
+                            <li>Jugement contextuel et éthique</li>
+                            <li>Empathie et intelligence émotionnelle</li>
+                            <li>Vision stratégique et décision finale</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="slide-number">10</div>
     </div>
 
-</body>
-</html>
+    <!-- Slide 11: Nouvelles technologies -->
+    <div class="slide slide-content">
+        <div class="content-wrapper">
+            <h2><span class="icon">🚀</span>Technologies Émergentes</h2>
+            
+            <div class="section-box">
+                <h3>🔮 L'IA en 2025 et au-del

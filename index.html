@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Digitale & IA</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            color: #fff;
+        }
+        
+        .slide {
+            margin: auto;
+            width: 297mm;
+            height: 210mm;
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .slide h1 {
+            font-size: 64px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .slide h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .slide p, .slide li {
+            font-size: 28px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .slide ul {
+            list-style: none;
+            margin-top: 30px;
+        }
+        
+        .slide li {
+            padding-left: 40px;
+            position: relative;
+            margin-bottom: 25px;
+        }
+        
+        .slide li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 32px;
+        }
+        
+        .highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 20px;
+            opacity: 0.7;
+        }
+        
+        .title-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 36px;
+            opacity: 0.9;
+            margin-top: 20px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                box-shadow: none;
+            }
+        }
+        
+        .btn-print {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        .btn-print:hover {
+            background: #5568d3;
+        }
+        
+        @media print {
+            .btn-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <button class="btn-print" onclick="window.print()">📄 Générer PDF</button> -->
+
+    <!-- Slide 1: Titre -->
+    <div class="slide title-slide">
+        <div class="slide-content">
+            <h1>La Transformation Digitale & l'IA</h1>
+            <p class="subtitle">Donner des outils pour la manipulation de l'IA dans la formation, l'usage de Montrer et manipuler</p>
+        </div>
+        <div class="slide-number">1</div>
+    </div>
+
+    <!-- Slide 2: Objectifs -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>🎯 Objectifs</h2>
+            <ul>
+                <li>Former vos équipes à l'IA générative</li>
+                <li>Automatisation des tâches chronophages</li>
+                <li>Augmenter la productivité</li>
+                <li>Montrer via des exemples concrets</li>
+            </ul>
+        </div>
+        <div class="slide-number">2</div>
+    </div>
+
+    <!-- Slide 3: L'IA pour les équipes -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>🤖 L'IA au service des équipes</h2>
+            <ul>
+                <li><span class="highlight">ChatGPT / Claude</span> : Rédaction, analyse, brainstorming</li>
+                <li><span class="highlight">Outils de génération</span> : Images, vidéos, présentations</li>
+                <li><span class="highlight">Automatisation</span> : Workflows intelligents</li>
+                <li><span class="highlight">Gain de temps</span> : Focus sur la valeur ajoutée</li>
+            </ul>
+        </div>
+        <div class="slide-number">3</div>
+    </div>
+
+    <!-- Slide 4: Cas d'usage -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>💡 Cas d'usage concrets</h2>
+            <ul>
+                <li>Rédaction de rapports et comptes-rendus</li>
+                <li>Création de présentations PowerPoint</li>
+                <li>Analyse de données et insights</li>
+                <li>Support client automatisé</li>
+                <li>Génération de contenus marketing</li>
+            </ul>
+        </div>
+        <div class="slide-number">4</div>
+    </div>
+
+    <!-- Slide 5: Logiciels courants -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>🛠️ Logiciels & Outils IA</h2>
+            <ul>
+                <li><span class="highlight">Montage</span> : CapCut, Adobe Premiere (IA)</li>
+                <li><span class="highlight">Définir via Excel</span> : Power Query, formules IA</li>
+                <li><span class="highlight">Entreprise</span> : Microsoft Copilot, Notion AI</li>
+                <li><span class="highlight">Utiliser</span> : Formation pratique et manipulations</li>
+            </ul>
+        </div>
+        <div class="slide-number">5</div>
+    </div>
+
+    <!-- Slide 6: Power Point via IA -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>📊 Montrer comment utiliser l'IA</h2>
+            <ul>
+                <li>Créer des présentations en quelques secondes</li>
+                <li>Générer du contenu visuellement attractif</li>
+                <li>Automatiser la mise en forme</li>
+                <li>Adapter le message à l'audience</li>
+            </ul>
+        </div>
+        <div class="slide-number">6</div>
+    </div>
+
+    <!-- Slide 7: Responsabilités -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>⚖️ Responsabilités & Bonnes Pratiques</h2>
+            <ul>
+                <li>Vérifier les informations générées</li>
+                <li>Respecter la confidentialité des données</li>
+                <li>Maintenir l'esprit critique</li>
+                <li>Former continuellement les équipes</li>
+            </ul>
+        </div>
+        <div class="slide-number">7</div>
+    </div>
+
+    <!-- Slide 8: Nouvelles technologies -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>🚀 Nouvelles Technologies</h2>
+            <ul>
+                <li><span class="highlight">Travail aux côtés</span> : Collaboration homme-machine</li>
+                <li>IA comme assistant, pas comme remplaçant</li>
+                <li>Augmentation des capacités humaines</li>
+                <li>Évolution continue des outils</li>
+            </ul>
+        </div>
+        <div class="slide-number">8</div>
+    </div>
+
+    <!-- Slide 9: Plan d'action -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>📋 Plan d'Action</h2>
+            <ul>
+                <li>Audit des besoins de l'équipe</li>
+                <li>Formation pratique aux outils IA</li>
+                <li>Mise en place de workflows automatisés</li>
+                <li>Suivi et optimisation continue</li>
+            </ul>
+        </div>
+        <div class="slide-number">9</div>
+    </div>
+
+    <!-- Slide 10: Conclusion -->
+    <div class="slide title-slide">
+        <div class="slide-content">
+            <h1>🎓 Prêts pour la transformation ?</h1>
+            <p class="subtitle">L'IA n'est pas l'avenir, c'est maintenant</p>
+            <p style="margin-top: 40px; font-size: 32px;">Passons à la pratique !</p>
+        </div>
+        <div class="slide-number">10</div>
+    </div>
+
+</body>
+</html>
